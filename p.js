@@ -103,70 +103,139 @@
 
 // stack using  Queue
 
-class Queue {
-    constructor() {
-        this.items = [];
+// class Queue {
+//     constructor() {
+//         this.items = [];
+//     }
+//     enqueue(element) {
+//         this.items.push(element);
+//     }
+//     dequeue() {
+//         return this.items.shift();
+//     }
+//     isEmpty() {
+//         return this.items.length === 0;
+//     }
+//     peek() {
+//         if (!this.isEmpty()) {
+//         return  this.items[0];
+//         }
+//         return null;
+//     }
+//     getSize() {
+//         return  this.items.length;
+//     }
+//     print() {
+//         console.log(this.items.toString());
+//     }
+// }
+
+// class Stack{
+//     constructor(){
+//         this.queue1=new Queue()
+//         this.queue2=new Queue()
+//     }
+//     push(value){
+
+//           // Move all elements from queue1 to queue2
+//         while(!this.queue1.isEmpty()){
+//             this.queue2.enqueue(this.queue1.dequeue())
+//         }
+//         // Push the new element into queue1
+//         this.queue1.enqueue(value)
+
+//          // Move all elements back from queue2 to queue1
+//         while(!this.queue2.isEmpty()){
+//             this.queue1.enqueue(this.queue2.dequeue())
+//         }
+//     }
+//     pop(){
+//         if(this.queue1.isEmpty()){
+//             return "underflow"
+//         }
+//         return this.queue1.dequeue()
+//     }
+//     front(){
+//         return this.queue1.peek()
+//     }
+//     display(){
+//         console.log("elements are ", this.queue1.items.toString());
+        
+//     }
+// }
+
+
+// let stack =new Stack()
+// stack.push(5)
+// stack.push(66)
+// stack.push(2)
+// console.log(stack.display())
+
+
+// -------------------------------------------------------
+
+//queue using stack
+
+class Stack{
+    constructor(){
+        this.items=new Array()
     }
-    enqueue(element) {
-        this.items.push(element);
+    isEmpty(){
+        return this.items.length==0
     }
-    dequeue() {
-        return this.items.shift();
+    push(value){
+        this.items.push(value)
     }
-    isEmpty() {
-        return this.items.length === 0;
+    pop(){
+        if(this.isEmpty()){
+            return "underflow"
+        }return this.items.pop()
     }
-    peek() {
-        if (!this.isEmpty()) {
-        return  this.items[0];
-        }
-        return null;
+    peek(){
+        if(this.isEmpty()){
+            return "empty list"
+        }return this.items[this.items.length-1]
     }
-    getSize() {
-        return  this.items.length;
-    }
-    print() {
+    print(){
         console.log(this.items.toString());
     }
 }
 
-class Stack{
+class Queue{
     constructor(){
-        this.queue1=new Queue()
-        this.queue2=new Queue()
+        this.stack1 = new Stack()
+        this.stack2 = new Stack()
     }
-    push(value){
-
-          // Move all elements from queue1 to queue2
-        while(!this.queue1.isEmpty()){
-            this.queue2.enqueue(this.queue1.dequeue())
+    isEmpty(){
+        return this.stack1.length==0
+    }
+    enqueue(value){
+        while(!this.stack1.isEmpty()){
+            this.stack2.push(this.stack1.pop())
         }
-        // Push the new element into queue1
-        this.queue1.enqueue(value)
-
-         // Move all elements back from queue2 to queue1
-        while(!this.queue2.isEmpty()){
-            this.queue1.enqueue(this.queue2.dequeue())
+        this.stack1.push(value)
+        while(!this.stack2.isEmpty()){
+            this.stack1.push(this.stack2.pop())
         }
     }
-    pop(){
-        if(this.queue1.isEmpty()){
+    dequeue(){
+        if(this.isEmpty()){
             return "underflow"
         }
-        return this.queue1.dequeue()
+        return this.stack1.pop()
     }
     front(){
-        return this.queue1.peek()
+        if(this.stack1.isEmpty()){
+            return null
+        }return this.stack1.peek()
     }
     display(){
-        console.log("elements are ", this.queue1.items.toString());
-        
+        console.log(this.stack1.items.toString());    
     }
 }
 
-
-let stack =new Stack()
-stack.push(5)
-stack.push(66)
-stack.push(2)
-console.log(stack.display())
+let queue=new Queue()
+queue.enqueue(4)
+queue.enqueue(6)
+queue.enqueue(8)
+queue.display()
