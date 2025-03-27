@@ -165,14 +165,103 @@
 // console.log(queue.display())
 
 
-// -----------------------------------------------------------
+// -----------stack using LL------------------------------------------------
 
 
 
+// class Node{
+//     constructor(value){
+//         this.value=value
+//         this.next=null
+//     }
+// }
+// class Stack{
+//     constructor(){
+//         this.head=null
+//     }
+//     isEmpty(){
+//         return this.head===null
+//     }
+//     push(value){
+//         let node=new Node(value)
+//         node.next=this.head
+//         this.head=node
+//     }
+//     pop(){
+//         if(!this.isEmpty()){
+//             let temp=this.head
+//             this.head=this.head.next
+//             return temp.value
+//         }else{
+//             return "underflow"
+//         }
+//     }
+//     peek(){
+//         if(!this.isEmpty()){
+//             return  this.head.value
+//         }return "empty"
+//     }
+//     print(){
+//         let curr=this.head
+//         while(curr !==null){
+//             console.log(curr.value)
+//             curr=curr.next
+//         }
+//     }
+// }
+
+// let stack=new Stack()
+// stack.push(50)
+// stack.push(54)
+// stack.push(20)
+// stack.push(42)
+
+// console.log("front",stack.peek())
+// stack.print()
+// console.log("popped element",stack.pop())
 
 
+// stack.print()
 
 
+// -------------------queue using LL--------------------------------------------------------
+class Node{
+    constructor(value){
+        this.value=value
+        this.next=null
+    }
+}
+class Queue{
+    constructor(){
+        this.head=null
+        this.rear=null
+    }
+    isEmpty(){
+        return this.head==null
+    }
+    enqueue(value){
+        let node=new Node(value)
+        if(this.isEmpty()){
+            this.head=node
+            this.rear=node
+        }else{
+            this.rear.next=node
+            this.rear=node
+        }
+    }
+    dequeue(){
+        if(!this.isEmpty()){
+            let temp=this.head
+            this.head=this.head.next
+            if(this.head==null){
+                this.rear=null
+            }
+            return temp.value
+        }else{
+            return "underflow"
+        }
+    }
+}
 
 
 
