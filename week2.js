@@ -357,69 +357,191 @@
 
 // stack using queue 
 
-class Queue{
-    constructor(){
-        this.items=new Array()
+// class Queue{
+//     constructor(){
+//         this.items=new Array()
+//     }
+//     isEmpty(){
+//         return this.items.length===0
+//     }
+//     getSize(){
+//         return this.items.length
+//     }
+//     enqueue(value){
+//         this.items.push(value)
+//     }
+//     dequeue(){
+//         if(!this.isEmpty()){
+//             return this.items.shift()
+//         }return "underflow"
+//     }
+//     front(){
+//         if(!this.isEmpty()){
+//             return this.items[0]
+//         }return null
+//     }
+//     display(){
+//         console.log(this.items.toString());
+//     }
+// }
+
+// class Stack{
+//     constructor(){
+//         this.queue1=new Queue()
+//         this.queue2=new Queue()
+//     }
+//     push(value){
+//         while(!this.queue1.isEmpty()){
+//             this.queue2.enqueue(this.queue1.dequeue())
+//         }
+//         this.queue1.enqueue(value)
+//         while(!this.queue2.isEmpty()){
+//             this.queue1.enqueue(this.queue2.dequeue())
+//         }
+//     }
+//     pop(){
+//         if(!this.queue1.isEmpty()){
+//             return this.queue1.dequeue()
+//         }return "underflow"
+//     }
+//     peek(){
+//         if(!this.queue1.isEmpty()){
+//             return this.queue1.front()
+//         }
+//     }
+//     print(){
+//         this.queue1.display()
+//     }
+// }
+
+// let stack=new Stack()
+
+// stack.push(9)
+// stack.push(5)
+// stack.push(1)
+// console.log(stack.peek())
+// stack.pop()
+
+// stack.print()
+
+// ---------------------------------------
+
+// basic hash table 
+
+// class HashTable{
+//     constructor(size){
+//         this.table=new Array(size)
+//         this.size=size
+//     }
+//     hash(key){
+//         let total=0
+//         for(let i=0;i<key.length;i++){
+//             total+=key.charCodeAt(i)
+//         }
+//         return total % this.size
+//     }
+//     set(key,value){
+//         let index=this.hash(key)
+//         this.table[index]=value
+//     }
+//     get(key){
+//         let index=this.hash(key)
+//         return this.table[index]
+//     }
+//     remove(key){
+//         let index=this.hash(key)
+//         this.table[index]=undefined
+//     }
+//     display(){
+//         for(let i=0;i<this.table.length;i++){
+//             if(this.table[i]){
+//                 console.log(i,this.table[i]);
+                
+//             }
+//         }
+//     }
+// }
+
+// let table=new HashTable(10)
+// table.set("name","ashika")
+// table.set("age",22)
+// table.set("place","moovattupuzha")
+
+// table.display()
+// // console.log(table.get("age"));
+
+// // table.remove("place")
+// // table.display()
+
+// ------------------------------------
+// chaining in hashtable 
+
+class HashTable{
+    constructor(size){
+        this.table=new Array(size)
+        this.size=size
     }
-    isEmpty(){
-        return this.items.length===0
+    hash(key){
+        let total=0
+        for(let i=0;i<key.length;i++){
+            total += key.charCodeAt(i)
+        }
+        return total % this.size
     }
-    getSize(){
-        return this.items.length
+    set(key,value){
+        let index=this.hash(key)
+        if(!this.table[index]){
+            this.table[index]=[]
+        }
+        for(let pair of this.table[index]){
+            if(pair[0]===key){
+                pair[1]=value
+                return
+            }
+        }
+        this.table[index].push([key,value])
     }
-    enqueue(value){
-        this.items.push(value)
+    get(key){
+        let index=this.hash(key)
+        if( !this.table[index]){
+            return undefined
+        }
+        for(let pair of this.table[index]){
+            if(pair[0]==key){
+                return pair[1]
+            }
+        }
+        return undefined
     }
-    dequeue(){
-        if(!this.isEmpty()){
-            return this.items.shift()
-        }return "underflow"
-    }
-    front(){
-        if(!this.isEmpty()){
-            return this.items[0]
-        }return null
+    remove(key){
+        let index=this.hash(key)
+        if(!this.table[index]){
+            return
+        }
+        this.table[index]=this.table[index].filter(pair=>pair[0]!=key)
+        if(this.table[index].length==0){
+            this.table[index]=undefined
+        }
     }
     display(){
-        console.log(this.items.toString());
+        for(let i=0;i<this.table.length;i++){
+            if(this.table[i]){
+                console.log(i,this.table[i]);
+                
+            }
+        }
     }
+
 }
 
-class Stack{
-    constructor(){
-        this.queue1=new Queue()
-        this.queue2=new Queue()
-    }
-    push(value){
-        while(!this.queue1.isEmpty()){
-            this.queue2.enqueue(this.queue1.dequeue())
-        }
-        this.queue1.enqueue(value)
-        while(!this.queue2.isEmpty()){
-            this.queue1.enqueue(this.queue2.dequeue())
-        }
-    }
-    pop(){
-        if(!this.queue1.isEmpty()){
-            return this.queue1.dequeue()
-        }return "underflow"
-    }
-    peek(){
-        if(!this.queue1.isEmpty()){
-            return this.queue1.front()
-        }
-    }
-    print(){
-        this.queue1.display()
-    }
-}
+let table=new HashTable(10)
+table.set("name","ashika")
+table.set("age",22)
+table.set("mane","unknown")
 
-let stack=new Stack()
+console.log(table.get("name"));
 
-stack.push(9)
-stack.push(5)
-stack.push(1)
-console.log(stack.peek())
-stack.pop()
 
-stack.print()
+table.display()
+table.remove("mane")
+table.display()
