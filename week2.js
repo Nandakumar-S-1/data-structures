@@ -353,4 +353,73 @@
 
 // queue.display()
 
+// ----------------------------------------------------------------------------
 
+// stack using queue 
+
+class Queue{
+    constructor(){
+        this.items=new Array()
+    }
+    isEmpty(){
+        return this.items.length===0
+    }
+    getSize(){
+        return this.items.length
+    }
+    enqueue(value){
+        this.items.push(value)
+    }
+    dequeue(){
+        if(!this.isEmpty()){
+            return this.items.shift()
+        }return "underflow"
+    }
+    front(){
+        if(!this.isEmpty()){
+            return this.items[0]
+        }return null
+    }
+    display(){
+        console.log(this.items.toString());
+    }
+}
+
+class Stack{
+    constructor(){
+        this.queue1=new Queue()
+        this.queue2=new Queue()
+    }
+    push(value){
+        while(!this.queue1.isEmpty()){
+            this.queue2.enqueue(this.queue1.dequeue())
+        }
+        this.queue1.enqueue(value)
+        while(!this.queue2.isEmpty()){
+            this.queue1.enqueue(this.queue2.dequeue())
+        }
+    }
+    pop(){
+        if(!this.queue1.isEmpty()){
+            return this.queue1.dequeue()
+        }return "underflow"
+    }
+    peek(){
+        if(!this.queue1.isEmpty()){
+            return this.queue1.front()
+        }
+    }
+    print(){
+        this.queue1.display()
+    }
+}
+
+let stack=new Stack()
+
+stack.push(9)
+stack.push(5)
+stack.push(1)
+console.log(stack.peek())
+stack.pop()
+
+stack.print()
