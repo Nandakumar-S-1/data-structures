@@ -225,46 +225,132 @@
 
 
 // -------------------queue using LL--------------------------------------------------------
-class Node{
-    constructor(value){
-        this.value=value
-        this.next=null
-    }
-}
-class Queue{
-    constructor(){
-        this.head=null
-        this.rear=null
-    }
-    isEmpty(){
-        return this.head==null
-    }
-    enqueue(value){
-        let node=new Node(value)
-        if(this.isEmpty()){
-            this.head=node
-            this.rear=node
-        }else{
-            this.rear.next=node
-            this.rear=node
-        }
-    }
-    dequeue(){
-        if(!this.isEmpty()){
-            let temp=this.head
-            this.head=this.head.next
-            if(this.head==null){
-                this.rear=null
-            }
-            return temp.value
-        }else{
-            return "underflow"
-        }
-    }
-}
+// class Node{
+//     constructor(value){
+//         this.value=value
+//         this.next=null
+//     }
+// }
+// class Queue{
+//     constructor(){
+//         this.head=null
+//         this.rear=null
+//     }
+//     isEmpty(){
+//         return this.head==null
+//     }
+//     enqueue(value){
+//         let node=new Node(value)
+//         if(this.isEmpty()){
+//             this.head=node
+//             this.rear=node
+//         }else{
+//             this.rear.next=node
+//             this.rear=node
+//         }
+//     }
+//     dequeue(){
+//         if(!this.isEmpty()){
+//             let temp=this.head
+//             this.head=this.head.next
+//             if(this.head==null){
+//                 this.rear=null
+//             }
+//             return temp.value
+//         }else{
+//             return "underflow"
+//         }
+//     }
+//     front(){
+//         if(!this.isEmpty()){
+//             return this.head.value
+//         }else{
+//             return "empty"
+//         }
+//     }
+//     display(){
+//         let curr=this.head
+//         while(curr!=null){
+//             console.log(curr.value)
+//             curr=curr.next
+//         }
+//     }
+// }
+// let queue=new Queue()
+// queue.enqueue(12)
+// queue.enqueue(8)
+// queue.enqueue(9)
 
 
+// queue.display()
+// console.log(queue.front());
 
+// --------------------------------------------------------------
 
+// Queue using Stack 
+
+// class Stack{
+//     constructor(){
+//         this.items=new Array()
+//     }
+//     isEmpty(){
+//         return this.items.length==0
+//     }
+//     push(value){
+//         this.items.push(value)
+//     }
+//     pop(){
+//         if(!this.isEmpty()){
+//             return this.items.pop()
+//         }return "underflow"
+//     }
+//     peek(){
+//         if(!this.isEmpty()){
+//             return this.items[this.items.length-1]
+//         }
+//     }
+//     print(){
+//         console.log(this.items.toString());
+//     }
+// }
+
+// class Queue{
+//     constructor(){
+//         this.stack1=new Stack()
+//         this.stack2=new Stack()
+//     }
+//     enqueue(value){
+//         while(!this.stack1.isEmpty()){
+//             this.stack2.push(this.stack1.pop())
+//         }
+//         this.stack1.push(value)
+//         while(!this.stack2.isEmpty()){
+//             this.stack1.push(this.stack2.pop())
+//         }
+//     }
+//     dequeue(){
+//         if(!this.stack1.isEmpty()){
+//             return this.stack1.pop()
+//         }return "underflow"
+//     }
+//     front(){
+//         if(!this.stack1.isEmpty()){
+//             return this.stack1.peek()
+//         }return null
+//     }
+//     display(){
+//         return this.stack1.print()
+//     }
+// }
+
+// let queue=new Queue()
+// queue.enqueue(5)
+// queue.enqueue(7)
+// queue.enqueue(8)
+// queue.enqueue(12)
+// queue.dequeue()
+// console.log(queue.front());
+
+// queue.display()
 
 
