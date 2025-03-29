@@ -18,7 +18,7 @@ function searchRotatedArray(arr, target) {
             } else {
                 right = mid - 1;
             }
-        }
+        }   
     }
     return -1;
 }
