@@ -1,26 +1,27 @@
-//brackets check usign stack
-
-s1="({]}}){"
-s2="[{[}"
-s3="[({})]"
-
-function valid(s){
-    let stack=[]
-    let  brackets={
-        ']':'[',
-        '}':'{',
-        ')':'('
+class HashTable{
+    constructor(size){
+        this.table = new Array(size)
+        this.size=size
     }
-    for(let i of s){
-        if(i=='(' || i== '{' || i=='['){
-            stack.push(i)
-        }else{
-            if(stack.length==0 || stack.pop() !=brackets[i]){
-                return false
+    hash(key){
+        let total=0
+        for(let i=0;i<key.length;i++){
+            total += key.charCodeAt(i)
+        }
+        return total % this.size
+    }
+    set(key,value){
+        let index= this.hash(key)
+        if(!this.table[index]){
+            this.table[index]=[]
+        }
+        for(let pair of this.table[index]){
+            if(pair[0]==key){
+                pair[1]=value
+                return
             }
         }
     }
-    return true
-}
+    
 
-console.log(valid(s3));
+}
