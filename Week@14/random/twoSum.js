@@ -1,3 +1,4 @@
+
 // function twosum(nums,target){
 //     let map={}
 //     for(let i=0;i<nums.length;i++){
@@ -10,6 +11,7 @@
 //     }
 //     return []
 // }
+
 function twosum(nums,target){
     let freq={}
     for(let i=0;i<nums.length;i++){
