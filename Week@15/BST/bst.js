@@ -49,6 +49,9 @@ class BST{
             }
         }
     }
+    //first the root , then its left side full ,then its right 
+    //for this list 10 5 3 7 15
+    //10 5 3 7 15
     preOrder(root){
         if(root){
             console.log(root.value);
@@ -56,6 +59,9 @@ class BST{
             this.preOrder(root.right)
         }
     }
+    //first the lowest means left then its parent then its right 
+    //10 5 3 7 15
+    //3,5,7,10,15 also in increasing order
     inorder(root){
         if(root){
             this.inorder(root.left)
@@ -63,12 +69,29 @@ class BST{
             this.inorder(root.right)            
         }
     }
+    //first the left then its right then it
+    //10 5 3 7 15
+    //3,7,5,15,10
     postOrder(root){
         if(root){
             this.postOrder(root.left)
             this.postOrder(root.right)
             console.log(root.value);
             
+        }
+    }
+    BFS(){
+        let queue=[]
+        queue.push(this.root)
+        while(queue.length){
+            let curr=queue.shift()
+            console.log(curr.value);
+            if(curr.left){
+                queue.push(curr.left)
+            }
+            if(curr.right){
+                queue.push(curr.right)
+            }
         }
     }
 }
