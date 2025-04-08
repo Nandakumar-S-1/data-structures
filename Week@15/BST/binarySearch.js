@@ -72,9 +72,38 @@ class BST{
             
         }
     }
+
+    BFS(){
+        let queue=[this.root]
+        while(queue.length){
+            let curr=queue.shift()
+            console.log(curr.value)
+            if(curr.left) {
+                queue.push(curr.left)
+            }
+            if(curr.right){
+                queue.push(curr.right)
+            }
+        }
+    }
+
+    min(root){
+        if(!root.left){
+            return root.value
+        }else{
+            return this.min(root.left)
+        }
+    }
+    max(root){
+        if(!root.right){
+            return root.value
+        }else {
+            return this.max(root.right)
+        }
+    }
 }
 
-const bst = new Tree();
+const bst = new BST();
 bst.insert(10);
 bst.insert(5);
 bst.insert(15);
@@ -84,13 +113,19 @@ bst.insert(13);
 bst.insert(18);
 
 console.log("InOrder Traversal:");
-bst.inOrder(bst.root);  // Output: 3, 5, 7, 10, 13, 15, 18
+bst.inorder(bst.root);  // Output: 3, 5, 7, 10, 13, 15, 18
 
 console.log("PreOrder Traversal:");
-bst.preOrder(bst.root); // Output: 10, 5, 3, 7, 15, 13, 18
+bst.preorder(bst.root); // Output: 10, 5, 3, 7, 15, 13, 18
 
 console.log("PostOrder Traversal:");
 bst.postOrder(bst.root); // Output: 3, 7, 5, 13, 18, 15, 10
 
-console.log("Search 7:", bst.search(bst.root, 7)); // true
+console.log("BFS"); //10 ,5, 15,3,7,13,18
+bst.BFS()
+
+console.log("max",bst.max(bst.root));
+
+console.log("min",bst.min(bst.root));
+
 console.log("Search 20:", bst.search(bst.root, 20)); // false
