@@ -5,4 +5,4 @@ function reverse(str){
     }
     return rev
 }
-console.log(reverse("Aswathy"));
+console.log(reverse("Belwin "));
