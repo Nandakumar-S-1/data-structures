@@ -5,4 +5,14 @@ function reverse(str){
     }
     return rev
 }
-console.log(reverse("Belwin "));
+console.log(reverse("Belwin"));
+
+
+
+
+
+
+function methRev(str){
+    return str.split('').reverse().join('')
+}
+console.log(methRev("Aswathy"));
