@@ -5,7 +5,7 @@ function secLarge(arr){
         if(arr[i]>large){
             sec = large
             large=arr[i]
-        } else if(arr[i]>sec && arr[i] <large){
+        } else if(arr[i]>sec && arr[i] != large){
             sec=arr[i]
         }
     }
