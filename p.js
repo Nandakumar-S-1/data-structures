@@ -123,13 +123,13 @@
 
 // -----------------------------------
 
-// function fact(num){
-//     let i=1
-//     let j=1
-//     while(i<=num){
-//         j=i*j
-//         i++
-//     }
-//     return j
-// }
-// console.log(fact(5))
+function fact(num){
+    let i=1
+    let j=1
+    while(i<=num){
+        j=i*j
+        i++
+    }
+    return j
+}
+console.log(fact(5))
