@@ -123,13 +123,25 @@
 
 // -----------------------------------
 
-function fact(num){
-    let i=1
-    let j=1
-    while(i<=num){
-        j=i*j
-        i++
+// function fact(num){
+//     let i=1
+//     let j=1
+//     while(i<=num){
+//         j=i*j
+//         i++
+//     }
+//     return j
+// }
+// console.log(fact(5))
+
+// -----------------------------------
+
+function binary(num){
+    let res=''
+    while(num>0){
+        res=(num%2)+res
+        num=Math.floor(num/2)
     }
-    return j
+    return res || '0'
 }
-console.log(fact(5))
+console.log(binary(9));
