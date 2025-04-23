@@ -61,3 +61,16 @@
 // console.log(reverse(510));
 
 // ================================
+
+function output(arr,tar){
+    
+    for(let i=0;i<arr.length-1;i++){
+        for(let j=i+1;j<arr.length;j++){
+            if(arr[i]+arr[j]===tar){
+                return `${arr[i]}, ${arr[j]}`
+            }
+        }
+    }
+    
+}
+console.log(output([2,35,1,6,3,7],5));

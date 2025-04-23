@@ -1,4 +1,3 @@
-
 function rev(num){
     let str=num.toString()
     let rev=''

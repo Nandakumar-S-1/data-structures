@@ -17,8 +17,6 @@ function reverse1(arr){
 }
 console.log(reverse1([2,5,7,[1,2,3,4],9,[5,6,7,8],6]));
 
-
-
 // ------------------------
 
 function reverse2(arr){
