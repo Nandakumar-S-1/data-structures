@@ -1,266 +1,266 @@
-// //length of an array
+//length of an array
 
-// // function length(arr){
-// //     let i=0
-// //     let count=0
-// //     while(arr[i]){
-// //         count++
-// //         i++
-// //     }
-// //     return count
-// // }
-// // console.log(length([3,6,1,'l',7]));
+// function length(arr){
+//     let i=0
+//     let count=0
+//     while(arr[i]){
+//         count++
+//         i++
+//     }
+//     return count
+// }
+// console.log(length([3,6,1,'l',7]));
 
-// // ============ Add an element to an array without .push or .unshift ==================
+// ============ Add an element to an array without .push or .unshift ==================
 
-// // function addElement(arr,num){
-// //     arr[arr.length]=num
-// //     return arr
-// // }
-// // console.log(addElement([1,2],3));
+// function addElement(arr,num){
+//     arr[arr.length]=num
+//     return arr
+// }
+// console.log(addElement([1,2],3));
 
-// // ============ Remove the last element of an array without .pop.=================
+// ============ Remove the last element of an array without .pop.=================
 
-// // function removeElement(arr){
-// //     arr.length--
-// //     return arr
-// // }
-// // console.log(removeElement([2,3,6,1,9,7]));
+// function removeElement(arr){
+//     arr.length--
+//     return arr
+// }
+// console.log(removeElement([2,3,6,1,9,7]));
 
-// // ================== Reverse an array without using built-in methods.==============
+// ================== Reverse an array without using built-in methods.==============
 
-// // function Reverse(arr){
-// //     for(let i=0;i<arr.length/2;i++){
-// //         let temp=arr[i]
-// //         arr[i]=arr[arr.length-1-i]
-// //         arr[arr.length-1-i]=temp
-// //     }
-// //     return arr
-// // }
-// // console.log(Reverse([1,2,3,4,5]));
+// function Reverse(arr){
+//     for(let i=0;i<arr.length/2;i++){
+//         let temp=arr[i]
+//         arr[i]=arr[arr.length-1-i]
+//         arr[arr.length-1-i]=temp
+//     }
+//     return arr
+// }
+// console.log(Reverse([1,2,3,4,5]));
 
-// // ================= Merge two arrays manually.=====================
+// ================= Merge two arrays manually.=====================
 
-// // function mergeArrays(arr1,arr2){
-// //     let newArr= new Array(arr1.length+arr2.length)
-// //     let ind=0
-// //     for(let i=0;i<arr1.length;i++){
-// //         newArr[ind]=arr1[i]
-// //         ind++
-// //     }
-// //     for(let j=0;j<arr2.length;j++){
-// //         newArr[ind]=arr2[j]
-// //         ind++
-// //     }
-// //     return newArr
-// // }
-// // console.log(mergeArrays([3,6,8,1,2],[4,9,7,5]))
+// function mergeArrays(arr1,arr2){
+//     let newArr= new Array(arr1.length+arr2.length)
+//     let ind=0
+//     for(let i=0;i<arr1.length;i++){
+//         newArr[ind]=arr1[i]
+//         ind++
+//     }
+//     for(let j=0;j<arr2.length;j++){
+//         newArr[ind]=arr2[j]
+//         ind++
+//     }
+//     return newArr
+// }
+// console.log(mergeArrays([3,6,8,1,2],[4,9,7,5]))
 
-// // ================ Find if a given element exists in an array ==============
+// ================ Find if a given element exists in an array ==============
 
-// // function includes(arr,tar){
-// //     for(let i=0;i<arr.length;i++){
-// //         if(arr[i]==tar){
-// //             return true
-// //         }
-// //     }
-// //     return false
-// // }
-// // console.log(includes([2,4,7,1,9],8))
+// function includes(arr,tar){
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]==tar){
+//             return true
+//         }
+//     }
+//     return false
+// }
+// console.log(includes([2,4,7,1,9],8))
 
-// // ============= Find the first occurrence of a target value in an array.===========
+// ============= Find the first occurrence of a target value in an array.===========
 
-// // function firstIndexOf(arr,tar){
-// //     for(let i=0;i<arr.length;i++){
-// //         if(arr[i]===tar){
-// //             return i
-// //         }
-// //     }
-// //     return -1
-// // }
-// // console.log(firstIndexOf([4,6,2,4,7,6,3,8],6));
+// function firstIndexOf(arr,tar){
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]===tar){
+//             return i
+//         }
+//     }
+//     return -1
+// }
+// console.log(firstIndexOf([4,6,2,4,7,6,3,8],6));
 
-// //============= Sum all the elements in an array.==================
+//============= Sum all the elements in an array.==================
 
-// // function Sum(arr){
-// //     let i=0
-// //     let sum=0
-// //     while(i<arr.length){
-// //         sum+=arr[i]
-// //         i++
-// //     }
-// //     return sum
-// // }
-// // console.log(Sum([1,2,3,4,5]));
+// function Sum(arr){
+//     let i=0
+//     let sum=0
+//     while(i<arr.length){
+//         sum+=arr[i]
+//         i++
+//     }
+//     return sum
+// }
+// console.log(Sum([1,2,3,4,5]));
 
-// // ===========Find the average of numbers in an array.=================
+// ===========Find the average of numbers in an array.=================
 
-// // function average(arr){
-// //     let i=0
-// //     let sum=0
-// //     let count=0
-// //     while(i<arr.length){
-// //         sum+=arr[i]
-// //         count++
-// //         i++
-// //     }
-// //     return count>0 ? Math.floor(sum/count) : 0
-// // }
-// // console.log(average([1,2,3,4,5,6]));
+// function average(arr){
+//     let i=0
+//     let sum=0
+//     let count=0
+//     while(i<arr.length){
+//         sum+=arr[i]
+//         count++
+//         i++
+//     }
+//     return count>0 ? Math.floor(sum/count) : 0
+// }
+// console.log(average([1,2,3,4,5,6]));
 
-// //========= Count the number of even and odd numbers in an array.===========
+//========= Count the number of even and odd numbers in an array.===========
 
-// // function countEvenOdd(arr){
-// //     let even=0
-// //     let odd=0
-// //     for(let i=0;i<arr.length;i++){
-// //         if(arr[i]%2===0){
-// //             even++
-// //         }else{
-// //             odd++
-// //         }
-// //     }
-// //     return {odd,even}
-// // }
-// // console.log(countEvenOdd([2,3,6,1,7,5,3,8,9]));
+// function countEvenOdd(arr){
+//     let even=0
+//     let odd=0
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]%2===0){
+//             even++
+//         }else{
+//             odd++
+//         }
+//     }
+//     return {odd,even}
+// }
+// console.log(countEvenOdd([2,3,6,1,7,5,3,8,9]));
 
-// // ======== Count how many times each element appears.=======
+// ======== Count how many times each element appears.=======
 
-// // function times(arr){
-// //     let freq={}
-// //     for(let i of arr){
-// //         freq[i]=(freq[i] || 0)+1
-// //     }
-// //     return freq
-// // }
-// // console.log(times([2,3,6,4,1,3,7,4,2]));
+// function times(arr){
+//     let freq={}
+//     for(let i of arr){
+//         freq[i]=(freq[i] || 0)+1
+//     }
+//     return freq
+// }
+// console.log(times([2,3,6,4,1,3,7,4,2]));
 
-// // ==========Find array has duplicates or not.================
+// ==========Find array has duplicates or not.================
 
-// // function duplicates(arr){
-// //         let freq={}
-// //     for(let i of arr){
-// //         freq[i]=(freq[i] || 0)+1
-// //         if (freq[i] > 1) {
-// //             return true;
-// //         }
-// //     }
-// //     return false
-// // }
-// // console.log(duplicates([3,2]));
+// function duplicates(arr){
+//         let freq={}
+//     for(let i of arr){
+//         freq[i]=(freq[i] || 0)+1
+//         if (freq[i] > 1) {
+//             return true;
+//         }
+//     }
+//     return false
+// }
+// console.log(duplicates([3,2]));
 
-// // ======== Separate even and odd from an array.===============
+// ======== Separate even and odd from an array.===============
 
-// // function Separate(arr){
-// //     let even=[]
-// //     let odd=[]
-// //     for(let i=0;i<arr.length;i++){
-// //         if(arr[i]%2==0){
-// //             even.push(arr[i])
-// //         }else{
-// //             odd.push(arr[i])
-// //         }
-// //     }
-// //     return {even , odd}
-// // }
-// // console.log(Separate([2,5,4,7,1,8,9]));
+// function Separate(arr){
+//     let even=[]
+//     let odd=[]
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]%2==0){
+//             even.push(arr[i])
+//         }else{
+//             odd.push(arr[i])
+//         }
+//     }
+//     return {even , odd}
+// }
+// console.log(Separate([2,5,4,7,1,8,9]));
 
-// // ========== Frequency of each character in a string.==========
+// ========== Frequency of each character in a string.==========
 
-// // function Frequency(str){
-// //     let freq={}
-// //     for(let i of str){
-// //         freq[i]=(freq[i] || 0)+1
-// //     }
-// //     return freq
-// // }
-// // console.log(Frequency("ashika"));
+// function Frequency(str){
+//     let freq={}
+//     for(let i of str){
+//         freq[i]=(freq[i] || 0)+1
+//     }
+//     return freq
+// }
+// console.log(Frequency("ashika"));
 
-// // ======= Find the largest, second largest , smallest & second smallest number.=========
+// ======= Find the largest, second largest , smallest & second smallest number.=========
 
-// // function largestNsmallest(arr){
-// //     let large=-Infinity;
-// //     let small=Infinity;
-// //     let secLarge=-Infinity;
-// //     let secSmall=Infinity;
+// function largestNsmallest(arr){
+//     let large=-Infinity;
+//     let small=Infinity;
+//     let secLarge=-Infinity;
+//     let secSmall=Infinity;
 
-// //     for(let i=0;i<arr.length;i++){
-// //         let val = arr[i];
+//     for(let i=0;i<arr.length;i++){
+//         let val = arr[i];
         
-// //         if(val>large){
-// //              secLarge=large
-// //             large=val
-// //         }else if(val > secLarge && val != large){
-// //             secLarge=val
-// //         }
+//         if(val>large){
+//              secLarge=large
+//             large=val
+//         }else if(val > secLarge && val != large){
+//             secLarge=val
+//         }
         
-// //         if(val<small){
-// //              secSmall=small
-// //             small=val
-// //         }else if(val < secSmall && val != small){
-// //             secSmall=val
-// //         }
-// //     }
-// //     return {small , secSmall , large , secLarge}
-// // }
-// // console.log(largestNsmallest([2,4,1,5,3,11,33,5,7,97]));
+//         if(val<small){
+//              secSmall=small
+//             small=val
+//         }else if(val < secSmall && val != small){
+//             secSmall=val
+//         }
+//     }
+//     return {small , secSmall , large , secLarge}
+// }
+// console.log(largestNsmallest([2,4,1,5,3,11,33,5,7,97]));
 
 
-// // ======= Find the largest, second largest , smallest & second smallest number.=========
+// ======= Find the largest, second largest , smallest & second smallest number.=========
 
-// // function largestNsmallest(arr){
-// //     let large=-Infinity
-// //     let secLarge =-Infinity
-// //     let small=Infinity
-// //     let secSmall=Infinity
+// function largestNsmallest(arr){
+//     let large=-Infinity
+//     let secLarge =-Infinity
+//     let small=Infinity
+//     let secSmall=Infinity
 
-// //     for(let i=0;i<arr.length-1;i++){
-// //         for(let j=i+1;j<arr.length;j++){
-// //             if(arr[i]>arr[j]){
-// //                 [arr[i],arr[j]]=[arr[j],arr[i]]
-// //             }
-// //         }
-// //     }
-// //     large=arr[arr.length-1]
-// //     secLarge=arr[arr.length-2]
-// //     small=arr[0]
-// //     secSmall=arr[1]
+//     for(let i=0;i<arr.length-1;i++){
+//         for(let j=i+1;j<arr.length;j++){
+//             if(arr[i]>arr[j]){
+//                 [arr[i],arr[j]]=[arr[j],arr[i]]
+//             }
+//         }
+//     }
+//     large=arr[arr.length-1]
+//     secLarge=arr[arr.length-2]
+//     small=arr[0]
+//     secSmall=arr[1]
 
-// //     return {large,secLarge,small,secSmall}
-// // }
-// // console.log(largestNsmallest([6,5,1,7,4,8,2,9,3]));
+//     return {large,secLarge,small,secSmall}
+// }
+// console.log(largestNsmallest([6,5,1,7,4,8,2,9,3]));
 
-// // ======== Find the largest even number & Find the largest odd number.
+// ======== Find the largest even number & Find the largest odd number.
 
-// // function largest(arr){
-// //     let largeEven=0
-// //     let largeOdd=0
+// function largest(arr){
+//     let largeEven=0
+//     let largeOdd=0
 
-// //     for(let i=0;i<arr.length;i++){
-// //         if(arr[i]%2===0 && arr[i]>largeEven){
-// //             largeEven=arr[i]
-// //         }else if(arr[i]%2!==0 && arr[i]>largeOdd){
-// //             largeOdd=arr[i]
-// //         }
-// //     }
-// //     return {largeEven,largeOdd}
-// // }
-// // console.log(largest([2,5,23,7,9,6,12]));
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]%2===0 && arr[i]>largeEven){
+//             largeEven=arr[i]
+//         }else if(arr[i]%2!==0 && arr[i]>largeOdd){
+//             largeOdd=arr[i]
+//         }
+//     }
+//     return {largeEven,largeOdd}
+// }
+// console.log(largest([2,5,23,7,9,6,12]));
 
 
-// // ======Check if a number is prime or not.===========
-// // function isPrime(num){
-// //     if(num<2){
-// //         return false
-// //     }
-// //     for(let i=2;i<=Math.sqrt(num);i++){
-// //         if(num%i===0){
-// //             return false
-// //         }
-// //     }
-// //     return true
-// // }
-// // console.log(isPrime(4));
+// ======Check if a number is prime or not.===========
+// function isPrime(num){
+//     if(num<2){
+//         return false
+//     }
+//     for(let i=2;i<=Math.sqrt(num);i++){
+//         if(num%i===0){
+//             return false
+//         }
+//     }
+//     return true
+// }
+// console.log(isPrime(4));
 
 // // ===== Remove vowels from a string.=======
 
@@ -610,6 +610,32 @@
 // console.log(count("my name is nandakumar"));
 
 
+//==============
+
+// ==============sample code using async/await with try catch================
+
+function getColor(index) {
+    return new Promise((resolve, reject) => {
+        let colors = ['Red', 'Blue', 'Green'];
+        if (index >= colors.length) {
+            reject(new Error("Index is out of range"));
+        } else {
+            resolve(colors[index]);
+        }
+    });
+}
+
+async function showColor() {
+    try {
+        let index = 5;
+        let color = await getColor(index);
+        console.log(color);
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+showColor();
 
 
 
