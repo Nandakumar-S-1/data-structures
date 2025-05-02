@@ -54,6 +54,9 @@ class Graph {
             console.log(i + " -> " + conc);
         }
     }
+
+
+    
 }
 
 

@@ -1,3 +1,101 @@
+// ---------- binary search
+
+
+class Node{
+    constructor(value){
+        this.value=value
+        this.left=null
+        this.right=null
+    }
+}
+
+class BinaryTree{
+    constructor(){
+        this.root=null
+    }
+    isEmpty(){
+        return this.root===null
+    }
+    insert(value){
+        let node=new Node(value)
+        if(this.isEmpty()){
+            this.root=node
+            return
+        }else{
+            let queue=[this.root]
+            while(queue.length){
+                let curr=queue.shift()
+                if(!curr.left){
+                    curr.left=node
+                    return
+                }else{
+                    queue.push(curr.left)
+                }
+                if(!curr.right){
+                    curr.right=node
+                    return
+                }else{
+                    queue.push(curr.right)
+                }
+            }
+        }
+    }
+    preorder(node=this.root){
+        if(node){
+            console.log(node.value)
+            this.preorder(node.left)
+            this.preorder(node.right)
+        }
+    }
+    inorder(node=this.root){
+        if(node){
+            this.inorder(node.left)
+            console.log(node.value)
+            this.inorder(node.right)
+        }
+    }
+    postorder(node=this.root){
+        if(node){
+            this.postorder(node.left)
+            this.postorder(node.right)
+            console.log(node.value)
+        }
+    }
+    bfs(){
+        let queue=[this.root]
+        while(queue.length){
+            let curr=queue.shift()
+            console.log(curr.value)
+            if(curr.left){
+                queue.push(curr.left)
+            }
+            if(curr.right){
+                queue.push(curr.right)
+            }
+        }
+    }
+}
+
+
+let tree= new BinaryTree()
+
+tree.insert(12)
+tree.insert(4)
+tree.insert(89)
+tree.insert(1)
+tree.insert(9)
+tree.insert(12)
+
+tree.bfs()
+
+
+
+
+
+
+
+
+
 // // //        BST
         class Node{
             constructor(value){

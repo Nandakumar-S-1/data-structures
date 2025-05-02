@@ -10,7 +10,7 @@ class BST{
         this.root=null
     }
     isEmpty(){
-        return this.isEmpty===null
+        return this.root===null
     }
     insert(value){
         let node=new Node(value)
