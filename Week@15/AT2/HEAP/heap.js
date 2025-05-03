@@ -80,7 +80,7 @@ class Heap{
             }
 
             if(largest==index){
-                break
+                return
             }
             this.swap(index,largest)
             index=largest
