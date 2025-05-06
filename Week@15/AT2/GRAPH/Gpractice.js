@@ -10,40 +10,90 @@ class Graph{
         this.adjList.get(v).push(w)
         this.adjList.get(w).push(v)
     }
-    print(){
-        let keys=this.adjList.keys()
-        for(let i of keys){
-            let vals=this.adjList.get(i)
-            let res=''
-
-            for(let j of vals){
-                res+= j + ' '
+    DfsUtil(v,visited){
+        visited[v]=true
+        console.log(v);
+        for(let neighbor of this.adjList.get(v)){
+            if(!visited[neighbor]){
+                this.DfsUtil(neighbor,visited)
             }
-            console.log(i ,'=>', res)
+        }
+    }
+    DFS(start){
+        let visited={}
+        console.log("DFS ");
+        this.DfsUtil(start,visited)
+    }
+
+    BFS(start){
+        let visited={}
+        let queue=[]
+        visited[start]=true
+        queue.push(start)
+
+        console.log("BFS ");
+        while(queue.length !==0){
+            let v = queue.shift()
+            console.log(v);
+            for (const neighbor of this.adjList.get(v)) {
+                if(!visited[neighbor]){
+                    visited[neighbor]=true
+                queue.push(neighbor)
+                }
+            }
+        }
+        
+    }
+    printGraph() {
+        for (let [vertex, neighbors] of this.adjList) {
+            console.log(vertex + " -> " + neighbors.join(", "));
         }
     }
 }
 
-function shortestPath(g,start,end){
-    let queue=[[start]]
-    let visited=new Set([start])
+// function shortestPath(g,start,end){
+//     let queue=[[start]]
+//     let visited=new Set([start])
 
-    while(queue.length){
-        let path=queue.shift()
-        let node=path[path.length-1]
-        if(node===end){
-            return path
+//     while(queue.length){
+//         let path=queue.shift()
+//         let node=path[path.length-1]
+//         if(node===end){
+//             return path
+//         }
+
+//         for(let neighbor of g[node]){
+//             if(!visited.has(neighbor)){
+//                 visited.add(neighbor)
+//                 queue.push([...path,neighbor])
+//             }
+//         }
+//     }
+//     return null
+// }
+
+function shortestPath(g, start, end) {
+    let queue = [[start]];
+    let visited = new Set([start]);
+
+    while (queue.length) {
+        let path = queue.shift();
+        let node = path[path.length - 1];
+
+        if (node === end) {
+            return path;
         }
 
-        for(let neighbor of g[node]){
-            if(!visited.has(neighbor)){
-                visited.add(neighbor)
-                queue.push([...path,neighbor])
+        for (let neighbor of g.adjList.get(node)) {
+            if (!visited.has(neighbor)) {
+                visited.add(neighbor);
+                queue.push([...path, neighbor]);
             }
         }
     }
-    return null
+    return null;
 }
+
 
 let g= new Graph(5)
 let vertices = ['A','B','C','D','E']
