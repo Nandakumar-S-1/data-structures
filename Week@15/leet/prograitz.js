@@ -50,46 +50,46 @@
 
 
 
-// function Node(val, neighbors) {
-//     this.val = val === undefined ? 0 : val;
-//     this.neighbors = neighbors === undefined ? [] : neighbors;
-// };
+function Node(val, neighbors) {
+    this.val = val === undefined ? 0 : val;
+    this.neighbors = neighbors === undefined ? [] : neighbors;
+};
 
-// var cloneGraph = function(node){
-//     if(!node){
-//         return null
-//     }
-//     let visited = new Map()
-//     let dfs = (original)=>{
-//         if(visited.has(original)){
-//           return  visited.get(original)
-//         }
-//         let clone = new Node(original.val,[])
-//         visited.set(original,clone)
+var cloneGraph = function(node){
+    if(!node){
+        return null
+    }
+    let visited = new Map()
+    let dfs = (original)=>{
+        if(visited.has(original)){
+          return  visited.get(original)
+        }
+        let clone = new Node(original.val,[])
+        visited.set(original,clone)
         
-//         for(let neighbors of original.neighbors){
-//             clone.neighbors.push(dfs(neighbors))
-//         }
-//         return clone
-//     }
-//     return dfs(node)
-// }
+        for(let neighbors of original.neighbors){
+            clone.neighbors.push(dfs(neighbors))
+        }
+        return clone
+    }
+    return dfs(node)
+}
 
 
-// let node1=new Node(1)
-// let node2=new Node(2)
-// let node3=new Node(3)
-// let node4=new Node(4)
-// let node5=new Node(5)
-// let node6=new Node(6)
+let node1=new Node(1)
+let node2=new Node(2)
+let node3=new Node(3)
+let node4=new Node(4)
+let node5=new Node(5)
+let node6=new Node(6)
 
-// node1.neighbors = [node2, node4];
-// node2.neighbors = [node1, node3,node4];
-// node3.neighbors = [node2, node4,node6];
-// node4.neighbors = [node1, node3 ,node5];
+node1.neighbors = [node2, node4];
+node2.neighbors = [node1, node3,node4];
+node3.neighbors = [node2, node4,node6];
+node4.neighbors = [node1, node3 ,node5];
 
-// let clonedGraph = cloneGraph(node1);
-// console.log(clonedGraph);
+let clonedGraph = cloneGraph(node1);
+console.log(clonedGraph);
 
 
 
