@@ -107,25 +107,25 @@ class LinkedList {
 }
 
 // Delete element by value (first occurrence)
-deleteByValue(value) {
-    if (this.isEmpty()) {
-        return "List is empty";
-    }
-    if (this.head.value === value) {
-        this.head = this.head.next;
-        this.size--;
-        return;
-    }
-    let curr = this.head;
-    while (curr.next && curr.next.value !== value) {
-        curr = curr.next;
-    }
-    if (!curr.next) {
-        return "Value not found";
-    }
-    curr.next = curr.next.next;
-    this.size--;
-}
+// deleteByValue(value) {
+//     if (this.isEmpty()) {
+//         return "List is empty";
+//     }
+//     if (this.head.value === value) {
+//         this.head = this.head.next;
+//         this.size--;
+//         return;
+//     }
+//     let curr = this.head;
+//     while (curr.next && curr.next.value !== value) {
+//         curr = curr.next;
+//     }
+//     if (!curr.next) {
+//         return "Value not found";
+//     }
+//     curr.next = curr.next.next;
+//     this.size--;
+// }
     // Remove nth node from the end
 removeNthFromEnd(n) {
       if (n <= 0 || n > this.size) {
