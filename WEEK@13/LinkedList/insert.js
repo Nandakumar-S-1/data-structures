@@ -1,75 +1,67 @@
 class Node{
-    constructor(value){
-        this.value=value
+    constructor(val){
+        this.val=val
         this.next=null
     }
 }
-class LinkedList{
+class LL{
     constructor(){
         this.head=null
         this.size=0
     }
-
     isEmpty(){
-        return this.size==0
+        return this.size===0
     }
     getSize(){
         return this.size
     }
-
     print(){
         if(this.isEmpty()){
-            return "List is empty"
+            return 'list is empty'
+        }else{
+            let curr=this.head
+            let list=``
+            while(curr){
+                list+=`${curr.val}=>`
+                curr=curr.next
+            }
+            return list
         }
-        let curr=this.head
-        let listVals =''
-
-        while(curr){
-            listVals += `${curr.value}`
-            curr=curr.next
-        }
-        return listVals
     }
-
-    prepend(value){
-        let node=new Node(value)
+    prepend(val){
+        let node=new Node(val)
         if(this.isEmpty()){
             this.head=node
-        }
-        else{
+        }else{
             node.next=this.head
             this.head=node
-            
         }
         this.size++
     }
-    
-    append(value){
-        let node=new Node(value)
+    append(val){
+        let node=new Node(val)
         if(this.isEmpty()){
             this.head=node
-        }
-        else{
-            let prev=this.head
-            while(prev.next){
-                prev=prev.next
+        }else{
+            let curr=this.head
+            while(curr.next){
+                curr=curr.next
             }
-            prev.next=node
+            curr.next=node
         }
         this.size++
     }
-    
-    insertIndex(value,index){
-        let node=new Node(value)
-        if(index<0 || index >this.size){
-            return "invalid index"
+    insertAtIndex(val,ind){
+        if(ind<0 || ind>this.getSize()){
+            console.log('invalid index')
+            return
         }
-        if(index == 0){
-            return this.prepend(value)
-        }
-        else{
+        if(ind===0){
+            this.prepend(val)
+        }else{
+            let node=new Node(val)
             let prev=this.head
-            for(let i=0;i<index-1;i++){
+            for(let i=0;i<ind-1;i++){
                 prev=prev.next
             }
             node.next=prev.next
@@ -77,26 +69,88 @@ class LinkedList{
             this.size++
         }
     }
-
-    insertVal(value,target){
-        let node=new Node(value)
-        if(this.isEmpty()){
-            return "list is empty"
-        }
-        let curr=this.head
-        while(curr){
-            if(curr.value ==target){
-                node.next=curr.next
-                curr.next=node
-                this.size++
-                return
+    insertAfterIndex(val,ind){
+        if(ind<0||ind>this.getSize()){
+            console.log('invalid index')
+            return
+        }else{
+            let node=new Node(val)
+            let curr=this.head
+            for(let i=0;i<ind;i++){
+                curr=curr.next
             }
-            curr=curr.next
+            node.next=curr.next
+            curr.next=node
+            this.size++
         }
-        return "value not found"
     }
+    insertBeforeInd(val,ind){
+        if(ind<0||ind>this.getSize()){
+            console.log('invalid index')
+            return
+        }
+        if(ind===0){
+            this.prepend(val)
+        }else{
+            let node=new Node(val)
+            let prev=this.head
+            for(let i=0;i<ind-1;i++){
+                prev=prev.next
+            }
+            node.next=prev.next
+            prev.next=node
+            this.size++
+        }
+    }
+    insertAfterVal(val,target){
+        if(this.isEmpty()){
+            console.log(`list is empty`)
+            return
+        }else{
+            let curr=this.head
+            while(curr){
+                if(curr.val===target){
+                    let node=new Node(val)
+                    node.next=curr.next
+                    curr.next=node
+                    this.size++
+                    return
+                }
+                curr=curr.next
+            }
+        }
+        console.log('value not found in ll')
+        return
+    }
+}
+let ll = new LL()
 
-
+let i=1
+while(i<=5){
+    ll.prepend(i)
+    ll.append(i+1)
+    i++
 }
 
-let list=new LinkedList()
+console.log('base list\n',ll.print())
+// ll.insertAtIndex(15,8)
+// console.log('insertAtIndex\n',ll.print())
+
+// ll.insertAfterIndex(20,2)
+// console.log('insertAfterIndex\n',ll.print())
+
+// ll.insertBeforeInd(30,2)
+// console.log('insertBeforeInd\n',ll.print())
+
+// ll.insertAfterVal(70,44)
+// console.log('insertAfterVal\n',ll.print())
+
+
+
+
+
+
+
+
+
+
