@@ -8,7 +8,7 @@ function  anagram(str1,str2){
     }
     for(let i of str2){
         if(freq[i]){
-            freq[i]++
+            freq[i]--
         }
         else{
             return false
