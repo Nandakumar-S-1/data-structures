@@ -7,12 +7,10 @@ function  anagram(str1,str2){
         freq[i]=(freq[i] || 0)+1
     }
     for(let i of str2){
-        if(freq[i]){
-            freq[i]++
-        }
-        else{
+        if(!freq[i]){
             return false
         }
+        freq[i]--
     }
     return true
 }
